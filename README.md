@@ -1,4 +1,11 @@
-# Angepaßte Firmware für Pursa Clone 1
+#  Modified Marlin Firmware for Prusa Clone 1
+
+## Changes
+* TMC 2130
+    * remove all jumpers under stepper driver
+        * standalone mode
+    * change pinout
+
 
 ## Credits
 
