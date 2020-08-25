@@ -1,26 +1,27 @@
-#  Modified Marlin Firmware for Prusa Clone 1
+#  Modified Marlin Firmware for Prusa Clones
 
-## Changes to Marlin 2.0.6
-* TMC 2130 v1.0
-    * stealthchop 1 spreadcycle 0
-    * remove all jumpers under stepper driver (RAMPS 1.4)
-        * standalone mode (bridge)
-            * #define X_DRIVER_TYPE  TMC2160_STANDALONE // done 
-        * SPI mode (bridge^-1)
-            *   #define MONITOR_DRIVER_STATUS
-            * if v1.0 -> look https://discuss.toms3d.org/hardware-f6/tmc2130-v1-0-question-t1057.html
-    * change pinout for SPI and LCD
-        * #define TMC_USE_SW_SPI
-          #define TMC_SW_MOSI       44
-          #define TMC_SW_MISO       42
-          #define TMC_SW_SCK        40
+## Changes to Marlin 2.0.6 according to hardware
 * LCD Reprap Discount Smart Controller
     * #define SDSUPPORT
     * #define REPRAP_DISCOUNT_SMART_CONTROLLER
-
+* TMC 2130 v1.0
+    * remove all jumpers under stepper driver (RAMPS 1.4)
+    * standalone mode (default for TMC 2130 v1.0)
+        * check vref if standalone mode (vref = 0.8V)
+        * configuration.h -> stepper Driver -> #define X_DRIVER_TYPE  TMC2130_STANDALONE // done
+    * SPI mode (remove bridge + solder)
+        * #define MONITOR_DRIVER_STATUS
+        * if v1.0 -> look https://discuss.toms3d.org/hardware-f6/tmc2130-v1-0-question-t1057.html
+        * change pinout for SPI and LCD
+            ```c
+            #define TMC_USE_SW_SPI
+            #define TMC_SW_MOSI       44
+            #define TMC_SW_MISO       42
+            #define TMC_SW_SCK        40
+            ```
 ## Credits
 
-Much love to the Marlin dev team which consists of:
+Thanks to all the people working on this useful piece of software. Especially the marlin dev team.
 
  - Scott Lahteine [[@thinkyhead](https://github.com/thinkyhead)] - USA &nbsp; [Donate](http://www.thinkyhead.com/donate-to-marlin)
  - Roxanne Neufeld [[@Roxy-3D](https://github.com/Roxy-3D)] - USA

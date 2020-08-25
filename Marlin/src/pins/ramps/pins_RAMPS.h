@@ -123,14 +123,14 @@
 #define X_DIR_PIN                             55
 #define X_ENABLE_PIN                          38
 #ifndef X_CS_PIN
-  #define X_CS_PIN                            64
+  #define X_CS_PIN                            64  // default 53; spi 64
 #endif
 
 #define Y_STEP_PIN                            60
 #define Y_DIR_PIN                             61
 #define Y_ENABLE_PIN                          56
 #ifndef Y_CS_PIN
-  #define Y_CS_PIN                            66
+  #define Y_CS_PIN                            49 // default 49; spi 66
 #endif
 
 #ifndef Z_STEP_PIN
@@ -139,14 +139,14 @@
 #define Z_DIR_PIN                             48
 #define Z_ENABLE_PIN                          62
 #ifndef Z_CS_PIN
-  #define Z_CS_PIN                            63
+  #define Z_CS_PIN                            40 // default 40; spi 63
 #endif
 
 #define E0_STEP_PIN                           26
 #define E0_DIR_PIN                            28
 #define E0_ENABLE_PIN                         24
 #ifndef E0_CS_PIN
-  #define E0_CS_PIN                           59
+  #define E0_CS_PIN                           42 // default 42; spi 59
 #endif
 
 #define E1_STEP_PIN                           36
