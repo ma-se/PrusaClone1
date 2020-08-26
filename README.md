@@ -2,23 +2,15 @@
 
 ## Changes to Marlin 2.0.6 according to hardware
 * LCD Reprap Discount Smart Controller
-    * #define SDSUPPORT
-    * #define REPRAP_DISCOUNT_SMART_CONTROLLER
 * TMC 2130 v1.0
     * remove all jumpers under stepper driver (RAMPS 1.4)
     * standalone mode (default for TMC 2130 v1.0)
         * check vref if standalone mode (vref = 0.8V)
-        * configuration.h -> stepper Driver -> #define X_DRIVER_TYPE  TMC2130_STANDALONE // done
     * SPI mode (remove bridge + solder)
-        * #define MONITOR_DRIVER_STATUS
-        * if v1.0 -> look https://discuss.toms3d.org/hardware-f6/tmc2130-v1-0-question-t1057.html
+        * if v1.0 -> look https://marlinfw.org/docs/hardware/tmc_drivers.html
         * change pinout for SPI and LCD
-            ```c
-            #define TMC_USE_SW_SPI
-            #define TMC_SW_MOSI       44
-            #define TMC_SW_MISO       42
-            #define TMC_SW_SCK        40
-            ```
+        * enable senorless homing for x and y
+            * sensorless homeing for z is yields difficulties
 ## Credits
 
 Thanks to all the people working on this useful piece of software. Especially the marlin dev team.
