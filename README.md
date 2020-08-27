@@ -7,10 +7,13 @@
     * standalone mode (default for TMC 2130 v1.0)
         * check vref if standalone mode (vref = 0.8V)
     * SPI mode (remove bridge + solder)
-        * if v1.0 -> look https://marlinfw.org/docs/hardware/tmc_drivers.html
+        * if TMC 2130 v1.0 -> look https://marlinfw.org/docs/hardware/tmc_drivers.html
         * change pinout for SPI and LCD
         * enable senorless homing for x and y
             * sensorless homeing for z is yields difficulties
+* i3 prusa rework extruder
+    * adjusted extruder stepse from 500 to 650 steps/mm
+    
 ## Credits
 
 Thanks to all the people working on this useful piece of software. Especially the marlin dev team.
