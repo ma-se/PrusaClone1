@@ -1,16 +1,18 @@
 # Prusa Clones
-Modified Marlin Firmware for my Prusa Clones.
-Starting point for developing the Prusa Clones is Tom [TOM](https://toms3d.org/2017/02/23/building-cheapest-possible-prusa-i3-mk2/).
+This repository includes modified Marlin Firmware and used hardware list for my Prusa Clones.
+Starting point for developing the Prusa Clones is [TOM](https://toms3d.org/2017/02/23/building-cheapest-possible-prusa-i3-mk2/).
 
-## Hardware changes
+## Hardware changes and additions
 * printed parts
-    * znutholder
+    * znutholder.stl
+    * [RAMPS 1.4 Fan Mount, 40mm](https://www.thingiverse.com/thing:145946/files) by schlotzz
 
 ## Marlin 2.0.6 changes according to hardware
 * LCD Reprap Discount Smart Controller
 * TMC 2130 v1.0
     * remove all jumpers under stepper driver (RAMPS 1.4)
-    * Be sure tp place heat sinks on stepper driver
+    * Be sure tp place heat sinks on stepper driver (driver getting hot very fast)
+    * TMC 2130 need active cooling
     * standalone mode (default for TMC 2130 v1.0)
         * check vref if standalone mode (vref = 0.8V)
     * SPI mode (remove bridge + solder)
@@ -20,11 +22,13 @@ Starting point for developing the Prusa Clones is Tom [TOM](https://toms3d.org/2
             * sensorless homeing for z is yields difficulties
 * i3 prusa rework extruder
     * adjusted extruder steps from 500 to 650 steps/mm
+    * improve slicer settings
 
 ## TODO
-* Investigate of stepper driver strange behaviour
-* sonsorless homing for z
+* Investigate stepper driver`s strange behaviour
+* sensorless homing for z
     * How precise are the tmc2130?
+* Offset for x, y, z
 
 ## Credits
 Thanks to all the people working on this useful piece of software. Especially the marlin dev team.
