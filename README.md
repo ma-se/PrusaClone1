@@ -19,15 +19,20 @@ Starting point for developing the Prusa Clones is [TOM](https://toms3d.org/2017/
         * changed pinout for SPI and LCD
         * enable senorless homing for x and y
             * sensorless homeing for z is yields difficulties
-* i3 prusa rework extruder
+* [Wade L3K Extruder](https://www.thingiverse.com/thing:512338) by pierrelesek
     * adjusted extruder steps from 500 to 650 steps/mm
     * improve slicer settings
+* Pinda v2 Probe
+    * Add auto bed leveling with custom grid to meassure
+        * grid 5x5
+        
 
 ## TODO
 * Investigate stepper driver`s strange behaviour
 * sensorless homing for z
     * How precise are the tmc2130?
 * Offset for x, y, z
+* precision of inductive Probe
 
 ## Credits
 Thanks to all the people working on this useful piece of software. Especially the marlin dev team.

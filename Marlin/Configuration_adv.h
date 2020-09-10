@@ -1641,11 +1641,11 @@
  * probe points will follow. This prevents any change from causing
  * the probe to be unable to reach any points.
  */
-#if PROBE_SELECTED && !IS_KINEMATIC
-  //#define PROBING_MARGIN_LEFT PROBING_MARGIN
-  //#define PROBING_MARGIN_RIGHT PROBING_MARGIN
-  //#define PROBING_MARGIN_FRONT PROBING_MARGIN
-  //#define PROBING_MARGIN_BACK PROBING_MARGIN
+#if PROBE_SELECTED && !IS_KINEMATIC  // definition des messnetzes
+  #define PROBING_MARGIN_LEFT PROBING_MARGIN + 50
+  #define PROBING_MARGIN_RIGHT PROBING_MARGIN + 50
+  #define PROBING_MARGIN_FRONT PROBING_MARGIN + 50
+  #define PROBING_MARGIN_BACK PROBING_MARGIN + 50
 #endif
 
 #if EITHER(MESH_BED_LEVELING, AUTO_BED_LEVELING_UBL)
