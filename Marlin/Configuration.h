@@ -1724,7 +1724,7 @@
  * SD Card support is disabled by default. If your controller has an SD slot,
  * you must uncomment the following option or it won't work.
  */
-//#define SDSUPPORT
+#define SDSUPPORT         // MS - add cd-card-support
 
 /**
  * SD CARD: SPI SPEED
@@ -1835,7 +1835,7 @@
 //
 // Note: Usually sold with a white PCB.
 //
-//#define REPRAP_DISCOUNT_SMART_CONTROLLER
+#define REPRAP_DISCOUNT_SMART_CONTROLLER          // MS - add corect LCD
 
 //
 // Original RADDS LCD Display+Encoder+SDCardReader
