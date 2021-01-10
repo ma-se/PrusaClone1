@@ -51,11 +51,12 @@
   #error "Oops! Set MOTHERBOARD to an STM32F1-based board when building for STM32F1."
 #endif
 
-#if NONE(IS_RAMPS_SMART, IS_RAMPS_DUO, IS_RAMPS4DUE, TARGET_LPC1768)
-  #if !defined(__AVR_ATmega1280__) && !defined(__AVR_ATmega2560__)
-    #error "Oops! Select 'Arduino/Genuino Mega or Mega 2560' in 'Tools > Board.'"
-  #endif
+#if NOT_TARGET(IS_RAMPS_SMART, IS_RAMPS_DUO, IS_RAMPS4DUE, TARGET_LPC1768, __AVR_ATmega1280__, __AVR_ATmega2560__)
+  #error "Oops! Select 'Arduino/Genuino Mega or Mega 2560' in 'Tools > Board.'"
 #endif
+
+// Custom flags and defines for the build
+//#define BOARD_CUSTOM_BUILD_FLAGS -D__FOO__
 
 #ifndef BOARD_INFO_NAME
   #define BOARD_INFO_NAME "RAMPS 1.4"
@@ -123,14 +124,14 @@
 #define X_DIR_PIN                             55
 #define X_ENABLE_PIN                          38
 #ifndef X_CS_PIN
-  #define X_CS_PIN                            64  // default 53; spi 64
+  #define X_CS_PIN                            53
 #endif
 
 #define Y_STEP_PIN                            60
 #define Y_DIR_PIN                             61
 #define Y_ENABLE_PIN                          56
 #ifndef Y_CS_PIN
-  #define Y_CS_PIN                            66 // default 49; spi 66
+  #define Y_CS_PIN                            49
 #endif
 
 #ifndef Z_STEP_PIN
@@ -139,14 +140,14 @@
 #define Z_DIR_PIN                             48
 #define Z_ENABLE_PIN                          62
 #ifndef Z_CS_PIN
-  #define Z_CS_PIN                            63 // default 40; spi 63
+  #define Z_CS_PIN                            40
 #endif
 
 #define E0_STEP_PIN                           26
 #define E0_DIR_PIN                            28
 #define E0_ENABLE_PIN                         24
 #ifndef E0_CS_PIN
-  #define E0_CS_PIN                           59 // default 42; spi 59
+  #define E0_CS_PIN                           42
 #endif
 
 #define E1_STEP_PIN                           36
@@ -429,7 +430,7 @@
 // LCDs and Controllers //
 //////////////////////////
 
-#if HAS_SPI_LCD
+#if HAS_WIRED_LCD
 
   //
   // LCD Display output pins
@@ -448,6 +449,10 @@
     #define LCD_PINS_D5                       66
     #define LCD_PINS_D6                       44
     #define LCD_PINS_D7                       64
+
+  #elif ENABLED(TFTGLCD_PANEL_SPI)
+
+    #define TFTGLCD_CS                        33
 
   #else
 
@@ -681,6 +686,10 @@
 
       // Pins only defined for RAMPS_SMART currently
 
+    #elif IS_TFTGLCD_PANEL
+
+      #define SD_DETECT_PIN                   49
+
     #else
 
       // Beeper on AUX-4
@@ -705,7 +714,7 @@
     #endif
   #endif // NEWPANEL
 
-#endif // HAS_SPI_LCD
+#endif // HAS_WIRED_LCD
 
 #if ENABLED(REPRAPWORLD_KEYPAD) && DISABLED(ADC_KEYPAD)
   #define SHIFT_OUT                           40

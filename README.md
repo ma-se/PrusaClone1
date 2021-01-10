@@ -7,7 +7,7 @@ Starting point for developing the Prusa Clones is [TOM](https://toms3d.org/2017/
     * znutholder.stl
     * [RAMPS 1.4 Fan Mount, 40mm](https://www.thingiverse.com/thing:145946/files) by schlotzz
 
-## Marlin 2.0.6 changes according to hardware
+## Marlin 2.0.7.2 changes according to hardware
 * LCD Reprap Discount Smart Controller
 * TMC 2130 v1.0
     * remove all jumpers under stepper driver (RAMPS 1.4)
