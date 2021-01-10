@@ -28,6 +28,7 @@ Starting point for developing the Prusa Clones is [TOM](https://toms3d.org/2017/
         
 
 ## TODO
+* Buildvolume 300*300*300 must be adjusted
 * Investigate stepper driver`s strange behaviour
 * sensorless homing for z
     * How precise are the tmc2130?
