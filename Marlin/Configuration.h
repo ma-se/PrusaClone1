@@ -540,15 +540,25 @@
 
   // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define DEFAULT_bedKp 49.58
-  #define DEFAULT_bedKi 2.55
-  #define DEFAULT_bedKd 641.73
-  
-  /*
-  MS - bed autotune MK42 Heatbed
+
   #define DEFAULT_bedKp 10.00
   #define DEFAULT_bedKi .023
   #define DEFAULT_bedKd 305.4
+    
+  /*
+  MS - bed autotune MK42 Heatbed
+  AUTOTUNE
+  define DEFAULT_bedKp 49.58
+  #define DEFAULT_bedKi 2.55
+  #define DEFAULT_bedKd 641.73
+  DEFAULT
+  #define DEFAULT_bedKp 10.00
+  #define DEFAULT_bedKi .023
+  #define DEFAULT_bedKd 305.4
+2nd try
+#define DEFAULT_bedKp 52.76
+#define DEFAULT_bedKi 2.65
+#define DEFAULT_bedKd 700.22
   */
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
@@ -558,7 +568,7 @@
   //#define PID_DEBUG             // Sends debug data to the serial port. Use 'M303 D' to toggle activation.
   //#define PID_OPENLOOP          // Puts PID in open loop. M104/M140 sets the output power from 0 to PID_MAX
   //#define SLOW_PWM_HEATERS      // PWM with very low frequency (roughly 0.125Hz=8s) and minimum state time of approximately 1s useful for heaters driven by a relay
-  #define PID_FUNCTIONAL_RANGE 10 // If the temperature difference between the target temperature and the actual temperature
+  #define PID_FUNCTIONAL_RANGE 0 // If the temperature difference between the target temperature and the actual temperature
                                   // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
 #endif
 
@@ -997,7 +1007,7 @@
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 10
+#define PROBING_MARGIN 20         // MS - Distance from edge
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_SPEED (133*60)
@@ -1249,7 +1259,7 @@
  * Normally G28 leaves leveling disabled on completion. Enable
  * this option to have G28 restore the prior leveling state.
  */
-#define RESTORE_LEVELING_AFTER_G28          // MS - ??? testen
+#define RESTORE_LEVELING_AFTER_G28          // MS - mesh grid before every print
 
 /**
  * Enable detailed logging of G28, G29, M48, etc.

@@ -1692,7 +1692,7 @@
  * probe points will follow. This prevents any change from causing
  * the probe to be unable to reach any points.
  */
-#if PROBE_SELECTED && !IS_KINEMATIC// MS - define rectangle for mesh lvl
+#if PROBE_SELECTED && !IS_KINEMATIC // MS - rectangle for mesh lvl
   #define PROBING_MARGIN_LEFT PROBING_MARGIN
   #define PROBING_MARGIN_RIGHT PROBING_MARGIN
   #define PROBING_MARGIN_FRONT PROBING_MARGIN

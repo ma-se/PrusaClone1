@@ -7,7 +7,7 @@ Starting point for developing the Prusa Clones is [TOM](https://toms3d.org/2017/
     * znutholder.stl
     * [RAMPS 1.4 Fan Mount, 40mm](https://www.thingiverse.com/thing:145946/files) by schlotzz
 
-## Marlin 2.0.7.2 changes according to hardware
+## Marlin 2.0.7.2 softwarechanges according to hardware
 * LCD Reprap Discount Smart Controller
 * TMC 2130 v1.0
     * remove all jumpers under stepper driver (RAMPS 1.4)
@@ -25,6 +25,8 @@ Starting point for developing the Prusa Clones is [TOM](https://toms3d.org/2017/
 * Pinda v2 Probe
     * Add auto bed leveling with custom grid to meassure
         * grid 5x5
+* Auto Bed Level - bilinear (ABL)
+
         
 
 ## TODO
