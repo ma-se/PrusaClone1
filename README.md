@@ -26,6 +26,7 @@ Starting point for developing the Prusa Clones is [TOM](https://toms3d.org/2017/
     * Add auto bed leveling with custom grid to meassure
         * grid 5x5
 * Auto Bed Level - bilinear (ABL)
+* improved temperatur behavior (PID and targettemp)
 
         
 
