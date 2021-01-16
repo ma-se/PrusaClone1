@@ -424,8 +424,8 @@
 #define TEMP_SENSOR_6 0
 #define TEMP_SENSOR_7 0
 #define TEMP_SENSOR_BED 1
-#define TEMP_SENSOR_PROBE 0
-#define TEMP_PROBE_PIN 58                // MS PIN for tempsensor in probe
+#define TEMP_SENSOR_PROBE 998              // MS Proebchen :)
+#define TEMP_PROBE_PIN 57                // MS PIN for tempsensor in probe
 #define TEMP_SENSOR_CHAMBER 0
 
 // Dummy thermistor constant temperature readings, for use with 998 and 999
