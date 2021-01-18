@@ -424,8 +424,8 @@
 #define TEMP_SENSOR_6 0
 #define TEMP_SENSOR_7 0
 #define TEMP_SENSOR_BED 1
-#define TEMP_SENSOR_PROBE 998              // MS Proebchen :)
-#define TEMP_PROBE_PIN 57                // MS PIN for tempsensor in probe
+#define TEMP_SENSOR_PROBE 1             // MS - One is the right one.
+#define TEMP_PROBE_PIN 3                // MS - Analog 3, arduino knows, if digital or analog is wanted
 #define TEMP_SENSOR_CHAMBER 0
 
 // Dummy thermistor constant temperature readings, for use with 998 and 999
@@ -474,7 +474,7 @@
 #define HEATER_5_MAXTEMP 275
 #define HEATER_6_MAXTEMP 275
 #define HEATER_7_MAXTEMP 275
-#define BED_MAXTEMP      150
+#define BED_MAXTEMP      100          // MS - not reaching a higher temp > 100°C, it is also used for G76
 
 //===========================================================================
 //============================= PID Settings ================================
