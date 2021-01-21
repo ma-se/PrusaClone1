@@ -474,7 +474,7 @@
 #define HEATER_5_MAXTEMP 275
 #define HEATER_6_MAXTEMP 275
 #define HEATER_7_MAXTEMP 275
-#define BED_MAXTEMP      100          // MS - not reaching a higher temp > 100°C, it is also used for G76
+#define BED_MAXTEMP      110          // MS - not reaching a higher temp > 110°C, it is also used for G76
 
 //===========================================================================
 //============================= PID Settings ================================
@@ -523,7 +523,7 @@
  * heater. If your configuration is significantly different than this and you don't understand
  * the issues involved, don't use bed PID until someone else verifies that your hardware works.
  */
-#define PIDTEMPBED                // MS - enable autotune heatbed M303 E-1
+//#define PIDTEMPBED                // MS - enable autotune heatbed M303 E-1
 
 //#define BED_LIMIT_SWITCHING
 
@@ -1017,7 +1017,7 @@
 #define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
 
 // Feedrate (mm/min) for the "accurate" probe of each point
-#define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 2)
+#define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 4 )            // MS - default speed / 2 
 
 /**
  * Multiple Probing
@@ -1028,8 +1028,8 @@
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
-#define MULTIPLE_PROBING 5                  // MS - make it mean
-//#define EXTRA_PROBING    1
+#define MULTIPLE_PROBING 3                  // MS - make it mean
+//#define EXTRA_PROBING    3
 
 /**
  * Z probes require clearance when deploying, stowing, and moving between
@@ -1057,7 +1057,7 @@
 #define Z_PROBE_OFFSET_RANGE_MAX 20
 
 // Enable the M48 repeatability test to test probe accuracy
-//#define Z_MIN_PROBE_REPEATABILITY_TEST
+#define Z_MIN_PROBE_REPEATABILITY_TEST
 
 // Before deploy/stow pause for user confirmation
 //#define PAUSE_BEFORE_DEPLOY_STOW
@@ -1260,7 +1260,7 @@
  * Normally G28 leaves leveling disabled on completion. Enable
  * this option to have G28 restore the prior leveling state.
  */
-#define RESTORE_LEVELING_AFTER_G28          // MS - mesh grid before every print
+//#define RESTORE_LEVELING_AFTER_G28          // MS - mesh grid before every print
 
 /**
  * Enable detailed logging of G28, G29, M48, etc.
@@ -1412,7 +1412,7 @@
 
 // Homing speeds (mm/min)
 #define HOMING_FEEDRATE_XY (50*60)
-#define HOMING_FEEDRATE_Z  (4*60)
+#define HOMING_FEEDRATE_Z  (1*60)         // MS - default 4*60
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
