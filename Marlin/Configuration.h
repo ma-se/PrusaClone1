@@ -474,7 +474,7 @@
 #define HEATER_5_MAXTEMP 275
 #define HEATER_6_MAXTEMP 275
 #define HEATER_7_MAXTEMP 275
-#define BED_MAXTEMP      110          // MS - not reaching a higher temp > 110°C, it is also used for G76
+#define BED_MAXTEMP      120          // MS - not reaching a higher temp > 110°C, it is also used for G76
 
 //===========================================================================
 //============================= PID Settings ================================

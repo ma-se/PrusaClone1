@@ -47,25 +47,25 @@ typedef struct {
 
 // Probe temperature calibration constants
 #ifndef PTC_SAMPLE_COUNT
-  #define PTC_SAMPLE_COUNT 10U
+  #define PTC_SAMPLE_COUNT 15U
 #endif
 #ifndef PTC_SAMPLE_RES
-  #define PTC_SAMPLE_RES 5.0f
+  #define PTC_SAMPLE_RES 2.0f
 #endif
 #ifndef PTC_SAMPLE_START
-  #define PTC_SAMPLE_START 30.0f
+  #define PTC_SAMPLE_START 40.0f
 #endif
 #define PTC_SAMPLE_END ((PTC_SAMPLE_START) + (PTC_SAMPLE_COUNT) * (PTC_SAMPLE_RES))
 
 // Bed temperature calibration constants
 #ifndef BTC_PROBE_TEMP
-  #define BTC_PROBE_TEMP 30.0f
+  #define BTC_PROBE_TEMP 40.0f                  // MS - Temperature the probe should have while bed calibration
 #endif
 #ifndef BTC_SAMPLE_COUNT
-  #define BTC_SAMPLE_COUNT 10U
+  #define BTC_SAMPLE_COUNT 16U
 #endif
 #ifndef BTC_SAMPLE_STEP
-  #define BTC_SAMPLE_RES 5.0f
+  #define BTC_SAMPLE_RES 2.0f
 #endif
 #ifndef BTC_SAMPLE_START
   #define BTC_SAMPLE_START 60.0f
@@ -81,8 +81,9 @@ typedef struct {
 #endif
 
 static constexpr temp_calib_t cali_info_init[TSI_COUNT] = {
-    {  10,  5, 30,  30 + 10 *  5 },       // MS - Probe  {  PTC_SAMPLE_COUNT, PTC_SAMPLE_RES, PTC_SAMPLE_START, PTC_SAMPLE_END },       // Probe
-    {  10,  5, 60,  60 + 10 *  5 },       // MS - Bed    {  BTC_SAMPLE_COUNT, BTC_SAMPLE_RES, BTC_SAMPLE_START, BTC_SAMPLE_END },       // Bed
+    // samplecount, res, startemp, endtemp
+    {  PTC_SAMPLE_COUNT, PTC_SAMPLE_RES, PTC_SAMPLE_START, PTC_SAMPLE_END },       // MS - Probe       {  10,  3, 30,  30 + 10 *  3 },  // Probe
+    {  BTC_SAMPLE_COUNT, BTC_SAMPLE_RES, BTC_SAMPLE_START, BTC_SAMPLE_END },      // MS - Bed          {  10,  3, 60,  60 + 10 *  3 },  // Bed
   #if ENABLED(USE_TEMP_EXT_COMPENSATION)
     {  20,  5, 180, 180 +  5 * 20 }        // Extruder
   #endif

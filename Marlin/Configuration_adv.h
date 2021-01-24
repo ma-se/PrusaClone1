@@ -220,8 +220,8 @@
   /**
    * As described above, except for the bed (M140/M190/M303).
    */
-  #define WATCH_BED_TEMP_PERIOD                60 // Seconds
-  #define WATCH_BED_TEMP_INCREASE               2 // Degrees Celsius
+  #define WATCH_BED_TEMP_PERIOD                240 // Seconds            // MS - 60 default
+  #define WATCH_BED_TEMP_INCREASE               1 // Degrees Celsius    // MS - 2 default , < 1 not possibel
 #endif
 
 /**
@@ -1751,15 +1751,15 @@
     // Probe temperature calibration generates a table of values starting at PTC_SAMPLE_START
     // (e.g. 30), in steps of PTC_SAMPLE_RES (e.g. 5) with PTC_SAMPLE_COUNT (e.g. 10) samples.
 
-    #define PTC_SAMPLE_START  30.0f
-    #define PTC_SAMPLE_RES    5.0f
-    #define PTC_SAMPLE_COUNT  10U
+    //#define PTC_SAMPLE_START  30.0f
+    //#define PTC_SAMPLE_RES    2.0f // MS - default 5
+    //#define PTC_SAMPLE_COUNT  15U  // MS - 10       
 
     // Bed temperature calibration builds a similar table.
 
-    #define BTC_SAMPLE_START  60.0f
-    #define BTC_SAMPLE_RES    5.0f
-    #define BTC_SAMPLE_COUNT  10U
+    //#define BTC_SAMPLE_START  60.0f
+    //#define BTC_SAMPLE_RES    2.0f // MS - default 5
+    //#define BTC_SAMPLE_COUNT  20U  // MS - default 10
 
     // The temperature the probe should be at while taking measurements during bed temperature
     // calibration.
