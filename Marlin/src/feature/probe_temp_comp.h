@@ -87,7 +87,7 @@ static constexpr temp_calib_t cali_info_init[TSI_COUNT] = {
   #if ENABLED(USE_TEMP_EXT_COMPENSATION)
     {  20,  5, 180, 180 +  5 * 20 }        // Extruder
   #endif
-};
+}; 
 
 class ProbeTempComp {
   public:

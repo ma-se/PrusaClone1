@@ -759,7 +759,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 80, 4000, 650 }               // MS - adjusted steps { 80, 80, 4000, 500 } 
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 80, 4000, 975 }               // MS - adjusted steps { 80, 80, 4000, 500 }  flowrate 150 -> 975 0.45 extrusionwidth
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -779,7 +779,8 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 10000 }
+#define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 3000 }      // MS - #define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 10000 }
+
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -1004,7 +1005,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 10, 5, 0 }        // MS - adjust sensor position default ( { 10, 10, 0 } )
+#define NOZZLE_TO_PROBE_OFFSET { 10, 5, -2.8 }        // MS - adjust sensor position default ( { 10, 10, 0 } )
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1014,7 +1015,7 @@
 #define XY_PROBE_SPEED (133*60)
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
-#define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
+#define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z   // MS - default  HOMING_FEEDRATE_Z
 
 // Feedrate (mm/min) for the "accurate" probe of each point
 #define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 4 )            // MS - default speed / 2 
@@ -1028,8 +1029,8 @@
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
-#define MULTIPLE_PROBING 3                  // MS - make it mean
-//#define EXTRA_PROBING    3
+#define MULTIPLE_PROBING 7                  // MS - make it mean
+#define EXTRA_PROBING    3                  // MS - commented
 
 /**
  * Z probes require clearance when deploying, stowing, and moving between
@@ -1045,9 +1046,9 @@
  * Example: `M851 Z-5` with a CLEARANCE of 4  =>  9mm from bed to nozzle.
  *     But: `M851 Z+1` with a CLEARANCE of 2  =>  2mm from bed to nozzle.
  */
-#define Z_CLEARANCE_DEPLOY_PROBE   8 // Z Clearance for Deploy/Stow
-#define Z_CLEARANCE_BETWEEN_PROBES  3 // Z Clearance between probe points
-#define Z_CLEARANCE_MULTI_PROBE     3 // Z Clearance between multiple probes
+#define Z_CLEARANCE_DEPLOY_PROBE   3 // Z Clearance for Deploy/Stow
+#define Z_CLEARANCE_BETWEEN_PROBES  2 // Z Clearance between probe points
+#define Z_CLEARANCE_MULTI_PROBE     1 // Z Clearance between multiple probes
 //#define Z_AFTER_PROBING           5 // Z position after probing is done
 
 #define Z_PROBE_LOW_POINT          -2 // Farthest distance below the trigger-point to go before stopping
@@ -1411,7 +1412,7 @@
 #endif
 
 // Homing speeds (mm/min)
-#define HOMING_FEEDRATE_XY (50*60)
+#define HOMING_FEEDRATE_XY (30*60)        // MS - default (50*60)
 #define HOMING_FEEDRATE_Z  (1*60)         // MS - default 4*60
 
 // Validate that endstops are triggered on homing moves
